@@ -144,6 +144,17 @@ namespace EBudget.Model
             reader.Close();
             return categories;
         }
+        public string CreateSalt(string email) {
+            byte[] userBytes = Encoding.UTF8.GetBytes(email);
+
+            string salt = "";
+
+            foreach (byte b in userBytes) {
+                salt += b.ToString();
+            }
+
+            return salt;
+        }
         public String sha256_hash(string password, string salt)
         {
             StringBuilder Sb = new StringBuilder();
@@ -177,20 +188,6 @@ namespace EBudget.Model
 
             if (hashkey == vhash) return true;
             else return false;
-        }
-        public string CreateSalt(string email)
-        {
-            byte[] userBytes = Encoding.UTF8.GetBytes(email);
-
-            string salt = "";
-
-
-            foreach (byte b in userBytes)
-            {
-                salt += b.ToString();
-            }
-
-            return salt;
         }
         public void AddUser(User user)
         {

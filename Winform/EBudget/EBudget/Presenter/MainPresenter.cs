@@ -107,6 +107,25 @@ namespace EBudget.Presenter
 
             view.SetChartsView();
         }
+        public void DeleteCreateAddFilter(string name, string item, string querystring) {
+            data.QueryFilters = data.QueryFilters.Select(x => x).Where(x => x.Name != name).ToList();
+            QueryFilter filter;
+            QueryFilter.InOrEx inorex;
+            switch (name) {
+                case "Category":
+                    if (IsExpense(item)) inorex = QueryFilter.InOrEx.Expense;
+                    else inorex = QueryFilter.InOrEx.Income;
+                    filter = new QueryFilter("Category", inorex, querystring);
+                    break;
+                case "Subcategory":
+                    filter = new QueryFilter("Subcategory", QueryFilter.InOrEx.Expense, querystring);
+                    break;
+                default:
+                    filter = new QueryFilter(name, QueryFilter.InOrEx.Both, querystring);
+                    break;
+            }
+            data.QueryFilters.Add(filter);
+        }
         public bool IsFiltered()
         {
             if (data.QueryFilters.Count > 0) return true;
@@ -130,11 +149,7 @@ namespace EBudget.Presenter
             c.Close();
             CalcSetIncomeExpense();
 
-<<<<<<< HEAD
-            view.Ballance = "Ballance: " + Math.Round(sum,2) + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
-=======
-            view.Ballance = "Ballance: " + sum + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
->>>>>>> f44819e0f87d828157da147546975710db0d0ea5
+            view.Ballance = "Balance: " + Math.Round(sum,2) + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
 
         }
         public void CalcSetIncomeExpense()
@@ -169,13 +184,8 @@ namespace EBudget.Presenter
                 }
             }
             c.Close();
-<<<<<<< HEAD
             view.TExpense = "Expense: " + Math.Round(expensesum) + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
             view.TIncome = "Income: " + Math.Round(incomesum) + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
-=======
-            view.TExpense = "Expense: " + expensesum + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
-            view.TIncome = "Income: " + incomesum + " " + data.Def_Currency[0].ToString().ToUpper() + data.Def_Currency[1].ToString().ToLower() + data.Def_Currency[2].ToString().ToLower();
->>>>>>> f44819e0f87d828157da147546975710db0d0ea5
         }
         public void LoadPageList(List<int> pagelist, ComboBox comboBox_pageSelect)
         {
@@ -190,7 +200,7 @@ namespace EBudget.Presenter
             Connection c = new Connection();
             c.Connect();
             MySqlCommand cmd = c.Cmd(query);
-            data.Alltransactions = c.QueryAllTransactions(cmd).OrderByDescending(x => x.Date).ToList();//query only the current pages elements based on dgv.Height/rowheight and current page /all elements 
+            data.Alltransactions = c.QueryAllTransactions(cmd).OrderByDescending(x => x.Date).ToList(); 
             foreach (var t in data.Alltransactions)
             {
                 if (t.Type == "income")
@@ -374,27 +384,6 @@ namespace EBudget.Presenter
         public void FilterListClear()
         {
             data.QueryFilters = new List<QueryFilter>();
-        }
-        public void DeleteCreateAddFilter(string name, string item, string querystring)
-        {
-            data.QueryFilters = data.QueryFilters.Select(x => x).Where(x => x.Name != name).ToList();
-            QueryFilter filter;
-            QueryFilter.InOrEx inorex;
-            switch (name)
-            {
-                case "Category":
-                    if (IsExpense(item)) inorex = QueryFilter.InOrEx.Expense;
-                    else inorex = QueryFilter.InOrEx.Income;
-                    filter = new QueryFilter("Category", inorex, querystring);
-                    break;
-                case "Subcategory":
-                    filter = new QueryFilter("Subcategory", QueryFilter.InOrEx.Expense, querystring);
-                    break;
-                default:
-                    filter = new QueryFilter(name, QueryFilter.InOrEx.Both, querystring);
-                    break;
-            }
-            data.QueryFilters.Add(filter);
         }
         public bool IsExpense(string categoryname)
         {

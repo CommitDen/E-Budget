@@ -69,7 +69,6 @@ namespace EBudget.View.Signup
             if (score == SignupPresenter.PasswordScore.Blank || score == SignupPresenter.PasswordScore.VeryWeak || score == SignupPresenter.PasswordScore.Weak)
             {
                 MessageBox.Show("Weak password,\nPassword must be atleast \n  8 character long \nMust contain atleast:\n  1 lowercase character\n  1 uppercase character \n  1 number \n  1 special character", "Weak password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //textbox_name.Focus();
             }
         }
         private void Password2_textbox_Leave(object sender, EventArgs e)

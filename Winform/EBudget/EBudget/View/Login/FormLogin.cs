@@ -47,7 +47,6 @@ namespace EBudget.View.Login
             {
                 Form_Change_Main();
             }
-
         }
         private void linkLabel_signup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -667,12 +667,9 @@ namespace EBudget.View.Main
             presenter.SetChartDatasources(chart_monthly_breakdown);
             SetCharts();
         }
-<<<<<<< HEAD
 
         private void button_logout_Click(object sender, EventArgs e) {
             presenter.Logout();
         }
-=======
->>>>>>> f44819e0f87d828157da147546975710db0d0ea5
     }
 }
