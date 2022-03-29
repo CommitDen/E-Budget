@@ -1,20 +1,18 @@
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-</head>
-    <div class="row">
-        <div class="col-sm-6">
-            <canvas id="monthly_expense" style="width:100%;max-width:700px"></canvas>
+<div class="row">   
+        <div class="col-md-6" style="height:450px">
+            <canvas id="monthly_expense"></canvas>
         </div>
-        <div class="col-sm-6">
-            <canvas id="monthly_income_expense" style="width:100%;max-width:700px"></canvas>
+        <div class="col-md-6" style="height:450px">
+            <canvas id="monthly_income_expense"></canvas>
         </div>
+        
+</div>
+<div class="row">
+    <div class="col" style="height:450px">
+        <canvas id="yearly_income_expense"></canvas>
     </div>
-    <div class="row">
-        <div class="col-sm-10 offset-sm-1">
-            <canvas id="yearly_income_expense" style="width:100%;max-width:1400px;max-height:750px"></canvas>
-        </div>
-    </div>
-
+</div>
+    
 <script>
     let monthly_expense_xValues = <?php echo json_encode($expense_categories); ?>;
     let monthly_expense_yValues = <?php echo json_encode($expense_amounts); ?>;
@@ -29,6 +27,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             title: {
             fontSize: 18,
             display: true,
@@ -59,6 +58,7 @@ new Chart("monthly_income_expense", {
     }]
   },
   options: {
+        maintainAspectRatio: false,
         title: {
         fontSize: 18,
         display: true,
@@ -113,6 +113,7 @@ new Chart("yearly_income_expense", {
     }]
   },
   options: {
+        maintainAspectRatio: false,
         title: {
         fontSize: 18,
         display: true,

@@ -1,9 +1,9 @@
-<div class="container mt-5 border bg-secondary rounded">
+<div class="container mt-5 border rounded" style="background-color: #f1f1f1;">
     <div class="row text-center">
         <form action="index.php?controller=TransactionController&action=edit_category&category=<?php echo $selectedCategory->name; ?>" class="col-md-8 mx-auto pt-5" method="POST">
-        <label class="form-label text-white" for="category_name">Category: </label>
+        <label class="form-label me-2" for="category_name">Category: </label>
         <input class="col-6" type="text" name="category_name" id="category_name" value="<?php echo $selectedCategory->name; ?>" <?php if(!$isUserOwned) echo "disabled"; ?> >
-        <button name="edit" class="btn btn-success border fw-bold" <?php if(!$isUserOwned) echo "disabled"; ?>><i class="fa-solid fa-floppy-disk"></i>  Save</button>
+        <button name="edit" class="btn btn-success border fw-bold" <?php if(!$isUserOwned) echo "disabled"; ?>><i class="fa-solid fa-floppy-disk"></i> Save</button>
         </form>
     </div>
     <?php
@@ -41,7 +41,7 @@
             </table>
                     
             <div class="col-12 text-center mb-5 mt-5">
-            <a class="btn btn-warning me-2" href="index.php?controller=TransactionController&action=load_add_subcategory&category='. $selectedCategory->name . '"><i class="btn-group btn-group-lg fa-solid fa-plus"></i> Add new Subcategory </a>
+            <a class="btn btn-success me-2" href="index.php?controller=TransactionController&action=load_add_subcategory&category='. $selectedCategory->name . '"><i class="btn-group btn-group-lg fa-solid fa-plus"></i> Add subcategory </a>
             </div>
             </div>
             </div>   

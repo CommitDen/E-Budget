@@ -92,9 +92,11 @@ function filter(){
                 $sub_array[] = $row['Currency_code'];
                 $sub_array[] = date('Y-m-d', strtotime($row['Date']));
                 $sub_array[] = $row['Comment'];
+                $center = "<div class='text-center'>";
                 $edit1 = "<a class='btn btn-warning me-2' href='index.php?controller=TransactionController&action=edit&type=".$row['type']."&id=".$row['id']."'><i class='btn-group btn-group-lg far fa-edit'></i> Edit </a>";
                 $delete1 = "<a class='btn btn-danger' href='index.php?controller=TransactionController&action=delete&type=".$row['type']."&id=".$row['id']."'><i class='btn-group btn-group-lg far fa-trash-can'></i> Delete </a>";
-                $sub_array[] = $edit1 . $delete1;
+                $end = "</div>";
+                $sub_array[] = $center . $edit1 . $delete1 . $end;
 
                 $data[] = $sub_array;
                 

@@ -123,9 +123,7 @@ namespace app\controller;
                         $_SESSION['userId'] = $userId;
                         $_SESSION['defCurrency'] = $userDaoObj->getDefaultCurrency()->currency_code;
                         $_SESSION['defCurrencyId'] = $userDaoObj->getDefaultCurrency()->id;
-                        var_dump($userId);
                         header('Location: index.php?controller=TransactionController&action=transactions');
-                        $this->loginOnNewTab();
                         return $this->tableFill($userId);
                     }
                     else {
@@ -146,7 +144,6 @@ namespace app\controller;
             $allCategories = $categoriesDaoObj->allCategoriesQuery();
             $allSubcategories = $subcategoriesDaoObj->subcategoriesExpenseQuery();
             $userTransactions = $userDaoObj->findUserById($id);
-            
             
             return $this->load('user', 'transaction_view', [
                 'transactions' => $userTransactions,
@@ -324,7 +321,7 @@ namespace app\controller;
                 }
                 if ($bool) {
                     $categoriesDaoObj->addCategory($type);
-                    //header('Location: index.php?controller=TransactionController&action=categories');
+                    header('Location: index.php?controller=TransactionController&action=categories');
                 }
                 else {
                     echo "<script>alert('This category already exists');</script>";
@@ -418,19 +415,24 @@ namespace app\controller;
 
         public function loadAddSubcategory($category){
             $subcategoriesDaoObj = new SubcategoriesDao();
+            $categoriesDaoObj = new CategoriesDao();
+            $categoriesExpense = $categoriesDaoObj->categoriesExpenseQuery();
+            $categoriesIncome = $categoriesDaoObj->categoriesIncomeQuery();
             $categoryObj = $this->isExpense($category);
             $subcategories = $subcategoriesDaoObj->getSubcategoriesofCategory($categoryObj->id);
             $bool = true;
+            $id = $this->isExpense($category)->id;
+            
             if (isset($_POST['add_subcategory'])) {
                 for ($i=0; $i < count($subcategories); $i++) { 
                     if ($subcategories[$i]->name == $_POST['subcategoryAdd']) {
                         $bool = false;
                     }
-                    $id = $subcategories[$i]->categories_expense_id;
                 }
                 if (strlen($_POST['subcategoryAdd']) >= 5) {
                     if ($bool) {
                         $subcategoriesDaoObj->addSubcategory($id);
+                        header('Location: index.php?controller=TransactionController&action=load_edit_category&category='.$category);
                     }
                     else {
                         echo "<script>alert('This subcategory already exists');</script>";
@@ -652,7 +654,14 @@ namespace app\controller;
 
     
 
-
+        function loadHomepage(){
+            if (isset($_SESSION['userId'])) {
+                header("Location: index.php?controller=TransactionController&action=transactions");
+            }
+            else {
+                header("Location: index.php?controller=TransactionController&action=login");
+            }
+        }
         
     }
 ?>

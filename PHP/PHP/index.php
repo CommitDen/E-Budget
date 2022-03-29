@@ -18,8 +18,6 @@ include 'app\model\FilterDao.php';
 
 use app\model\User;
 use app\controller\TransactionController;
-ini_set('session.gc_maxlifetime', 3600);
-session_set_cookie_params(3600);
 session_start();
 
 ?>
@@ -32,16 +30,20 @@ session_start();
     <title>E-Budget</title>
     <link rel="icon" type="image/x-icon" href="app/favicon.ico">
     <link rel="stylesheet" href="app\css\bootstrap.min.css">
+    <script src="css\bootstrap-5.0.2-dist\js\bootstrap.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://kit.fontawesome.com/726d8295c9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css"> 
 </head>
 <body class="container mx-auto mt-5 pt-4">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNav">
             <?php
                 echo "<ul class='navbar-nav'>";
                 if(isset($_SESSION['userId'])) {
@@ -69,6 +71,9 @@ switch ($controllerName) {
     case 'TransactionController':
         $controller = new TransactionController();
         switch ($actionName) {
+            case 'index':
+                $content = $controller->loadHomepage();
+                break;
             case 'login':
                 $content = $controller->load('user', 'login');
                 $content = $controller->validateUser();

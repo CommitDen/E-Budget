@@ -2,7 +2,7 @@
     <div class="row">
     <div class="col-md-8 mx-auto">
     <div class="table-responsive">
-            <table class="table table-striped mt-5">
+            <table class="table table-striped table-hover mt-3">
                 <thead class="thead-dark">
                     <tr class="bg-dark text-white">
                     <th scope="" class='col-1'>Categories</th>
@@ -45,7 +45,7 @@
                 </tbody>
             </table>
             <div class="col-12 text-center">
-                <a class='btn btn-warning me-2' href='index.php?controller=TransactionController&action=load_add_category'><i class='btn-group btn-group-lg fa-solid fa-plus'></i> Add new category </a>
+                <a class='btn btn-success mt-3 mb-3' href='index.php?controller=TransactionController&action=load_add_category'><i class='btn-group btn-group-lg fa-solid fa-plus'></i> Add category </a>
             </div>
     </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row p-5 mt-5 mx-auto">
-            <form action="" class="border form-background rounded col-lg-6 col-md-8 mx-auto p-3" method="POST">
+    <div class="row p-5 mx-auto">
+            <form action="" class="border rounded col-lg-6 col-md-8 mx-auto p-3" style="background-color: #f1f1f1;" method="POST">
                 <div class="form-group text-center mb-3">
                     <h1>E-Budget</h1>
                 </div>

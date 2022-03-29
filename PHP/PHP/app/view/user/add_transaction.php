@@ -1,14 +1,14 @@
 <div class="row">
-	<div class="jumbotron jumbotron-fluid bg-info text-white pt-3 pb-3">
-    	<h1 class="display-3 text-center"> Add transaction </h1>
+	<div class="jumbotron jumbotron-fluid bg-light">
+    	<h1 class="display-4 text-center"> Add transaction </h1>
 	</div>
 </div>
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="col-sm-6">
+<div class="container rounded p-3">
+    <div class="border rounded col-lg-6 col-md-8 mx-auto p-5" style="background-color: #f1f1f1;">
         <form method="POST" action="index.php?controller=TransactionController&action=addNewTransaction">
             <div class="form-group">
-                <label for="category">Category</label>
-                <select onchange="loadSubcategories(this);" class="form-select" aria-label="category" name="newTransaction[category]" id="category">
+                <label for="category" class="form-label">Category</label>
+                <select onchange="loadSubcategories(this);" class="form-select mb-4" aria-label="category" name="newTransaction[category]" id="category">
                     <?php
                         foreach ($allCategories as $category) {
                         echo "<option value=".$category->name.":".$category->id." >".$category->name."</option>";
@@ -24,8 +24,8 @@
             </div>
             
             <div class="form-group">
-                <label for="subcategory">Subcategory</label>
-                <select class="form-select" aria-label="subcategory" name="newTransaction[subcategory]" id="newTransaction[subcategory]">
+                <label for="subcategory" class="form-label">Subcategory</label>
+                <select class="form-select mb-4" aria-label="subcategory" name="newTransaction[subcategory]" id="newTransaction[subcategory]">
                 
                 </select>
                 <?php
@@ -33,12 +33,12 @@
                 ?>
             </div>
             <div class="form-group">
-                <label for="amount">Amount</label>
-                <input type="number" class="form-control" name="newTransaction[amount]" id="amount"> 
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" class="form-control mb-4" name="newTransaction[amount]" id="amount"> 
             </div>
             <div class="form-group">
-                <label for="currencyCode">Currency code</label>
-                <select class="form-select" aria-label="currencyCode" name="newTransaction[currency]" id="currencyCode">
+                <label for="currencyCode" class="form-label">Currency code</label>
+                <select class="form-select mb-4" aria-label="currencyCode" name="newTransaction[currency]" id="currencyCode">
                     <?php
                     $selected = "";
                     foreach ($currencies as $currency) {
@@ -50,12 +50,12 @@
                 
             </div>
             <div class="form-group">
-                <label for="newTransaction[date]">Date</label>
-                <input type="date" name="newTransaction[date]" value="<?php echo date("Y-m-d"); ?>">
+                <label for="newTransaction[date]" class="form-label">Date</label>
+                <input type="date" name="newTransaction[date]" class="form-control mb-4" value="<?php echo date("Y-m-d"); ?>">
             </div>
             <div class="form-group">
-                <label for="newTransaction[comment]">Comment</label>
-                <input type="text" class="form-control" name="newTransaction[comment]"> 
+                <label for="newTransaction[comment]" class="form-label">Comment</label>
+                <input type="text" class="form-control mb-5" name="newTransaction[comment]"> 
             </div>
             <div class="form-group mt-3 justify-content-between d-flex">
                 <a class="btn btn-warning" href="javascript:history.go(-1)">

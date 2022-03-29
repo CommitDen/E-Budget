@@ -64,8 +64,8 @@ $filterList = array();
                         $date = $row['Date'];
                     }
                     $json = file_get_contents('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/'.$date.'/currencies/'.$row['Currency_code'].'/'.$_SESSION['defCurrency'].'.json');
-                    $obj = json_decode($json);
-                    $amount = $obj->$_SESSION['defCurrency']*$row['Amount'];
+                    $obj = (array)json_decode($json);
+                    $amount = $obj[$_SESSION['defCurrency']]*$row['Amount'];
                 }
                 
                 if ($row['type'] == "income") {
@@ -102,8 +102,8 @@ $filterList = array();
                         $date = $row['Date'];
                     }
                     $json = file_get_contents('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/'.$date.'/currencies/'.$row['Currency_code'].'/'.$_SESSION['defCurrency'].'.json');
-                    $obj = json_decode($json);
-                    $amount = $obj->$_SESSION['defCurrency']*$row['Amount'];
+                    $obj = (array)json_decode($json);
+                    $amount = $obj[$_SESSION['defCurrency']]*$row['Amount'];
                 }
                 
                 if ($row['type'] == "income") {
