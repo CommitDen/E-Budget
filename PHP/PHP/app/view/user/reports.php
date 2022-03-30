@@ -44,8 +44,10 @@
     });
 
 
+
 var monthly_income_expense_xValues = ["Income", "Expense"];
-var monthly_income_expense_yValues = <?php echo json_encode($income_amounts); ?>;
+var monthly_income_yValues = <?php echo json_encode($income_amounts); ?>;
+console.log(monthly_income_yValues);
 var barColors2 = ["blue", "red"];
 
 new Chart("monthly_income_expense", {
@@ -54,7 +56,8 @@ new Chart("monthly_income_expense", {
     labels: monthly_income_expense_xValues,
     datasets: [{
       backgroundColor: barColors2,
-      data: monthly_income_expense_yValues
+      data: monthly_income_yValues.reverse(),
+      barPercentage: 0.6,
     }]
   },
   options: {
@@ -76,14 +79,14 @@ new Chart("monthly_income_expense", {
         },
         scales: {
         xAxes:[{
-            barPercentage: 0.6,
             ticks: {
                 fontSize: 18
             }
         }],
         yAxes:[{
             ticks: {
-                fontSize: 18
+                fontSize: 18,
+                beginAtZero: true
             }
         }]
         }
@@ -105,11 +108,13 @@ new Chart("yearly_income_expense", {
     datasets: [{
       label: "Income",
       backgroundColor: incomeColor,
-      data: yearly_income_expense_yValues1
+      data: yearly_income_expense_yValues1,
+      barPercentage: 0.6,
     },{
       label: "Expense",
       backgroundColor: expenseColor,
-      data: yearly_income_expense_yValues2
+      data: yearly_income_expense_yValues2,
+      barPercentage: 0.6,
     }]
   },
   options: {
@@ -121,14 +126,14 @@ new Chart("yearly_income_expense", {
         },
         scales: {
             xAxes:[{
-                barPercentage: 0.6,
                 ticks: {
                     fontSize: 18
                 }
             }],
             yAxes:[{
                 ticks: {
-                    fontSize: 18
+                    fontSize: 18,
+                    beginAtZero: true
                 }
             }]
         },

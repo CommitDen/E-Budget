@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="mt-2 mb-3">
-            <h3 class="col-lg-4" id="Balance">Balance: <span id="balance"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
-            <h3 class="col-lg-4" id="totalExpense">Expense total: <span id="expense"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
-            <h3 class="col-lg-4" id="totalIncome">Income total: <span id="income"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
+            <h3 class="col-12" id="Balance">Balance: <span id="balance"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
+            <h3 class="col-12" id="totalExpense">Expense total: <span id="expense"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
+            <h3 class="col-12" id="totalIncome">Income total: <span id="income"></span> <?php echo ucfirst($_SESSION['defCurrency']); ?></h3>
         </div>
     </div>
             <div class="col-12 col-md-12">
