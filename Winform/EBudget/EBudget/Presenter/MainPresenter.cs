@@ -562,9 +562,9 @@ namespace EBudget.Presenter
             view.Chart_monthly_expense_breakdown_categories = x.ToList();
             view.Chart_monthly_expense_breakdown_amounts = y.ToList();
         }
-        public void SetYearlyExpenseIncomeDataSource()
+        public void SetMonthlyExpenseIncomeDataSource()
         {
-            string query = String.Format("SELECT `view_alltransactions`.`type`, SUM(`view_alltransactions`.`Amount`) AS 'Amount' FROM `view_alltransactions` WHERE `view_alltransactions`.`date` BETWEEN '{0}' AND '{1}' GROUP BY `type`;", new DateTime(DateTime.Now.Year, 01,01,0,0,0).ToString("yyyy-MM-dd"), new DateTime(DateTime.Now.Year, 12, 31, 23, 59, 59).ToString("yyyy-MM-dd"));
+            string query = String.Format("SELECT `view_alltransactions`.`type`, SUM(`view_alltransactions`.`Amount`) AS 'Amount' FROM `view_alltransactions` WHERE `view_alltransactions`.`date` BETWEEN '{0}' AND '{1}' GROUP BY `type`;", new DateTime(DateTime.Now.Year, DateTime.Now.Month,01,0,0,0).ToString("yyyy-MM-dd"), new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month), 23, 59, 59).ToString("yyyy-MM-dd"));
 
             Connection c = new Connection();
 
@@ -635,7 +635,7 @@ namespace EBudget.Presenter
         public void SetChartDatasources(Chart chart)
         {
             SetMonthlyExpenseDataSource();
-            SetYearlyExpenseIncomeDataSource();
+            SetMonthlyExpenseIncomeDataSource();
             SetMonthlyBreakdownIncomeExpense(chart);
         }
         #endregion

@@ -145,7 +145,8 @@ CREATE TABLE `view_alltransactions` (
 --
 DROP TABLE IF EXISTS `view_alltransactions`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_alltransactions`  AS SELECT
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_alltransactions` AS 
+SELECT
     `t_i`.`user_id` AS `UserId`,
     'income' AS `type`,
     `t_i`.`id` AS `id`,
@@ -155,25 +156,10 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
     `c`.`currency_code` AS `Currency_code`,
     `t_i`.`date` AS `Date`,
     `t_i`.`comment` AS `Comment`
-FROM
-    (
-        (
-            (
-                `transactions_income` `t_i`
-            JOIN `categories_income` `c_i`
-            ON
-                (
-                    `t_i`.`categories_income_id` = `c_i`.`id`
-                )
-            )
-        JOIN `currencies` `c`
-        ON
-            (`t_i`.`currency_id` = `c`.`id`)
-        )
-    JOIN `users` `u`
-    ON
-        (`t_i`.`user_id` = `u`.`id`)
-    )
+FROM(((`transactions_income` `t_i` 
+    JOIN `categories_income` `c_i` ON (`t_i`.`categories_income_id` = `c_i`.`id`))
+    JOIN `currencies` `c` ON (`t_i`.`currency_id` = `c`.`id`))
+    JOIN `users` `u` ON (`t_i`.`user_id` = `u`.`id`))
 UNION
 SELECT
     `t_e`.`user_id` AS `UserId`,
@@ -185,32 +171,11 @@ SELECT
     `c`.`currency_code` AS `Currency_code`,
     `t_e`.`date` AS `Date`,
     `t_e`.`comment` AS `Comment`
-FROM
-    (
-        (
-            (
-                (
-                    `transactions_expense` `t_e`
-                JOIN `categories_expense` `c_e`
-                ON
-                    (
-                        `t_e`.`categories_expense_id` = `c_e`.`id`
-                    )
-                )
-            JOIN `subcategories_expense` `s_e`
-            ON
-                (
-                    `t_e`.`subcategories_expense_id` = `s_e`.`id`
-                )
-            )
-        JOIN `currencies` `c`
-        ON
-            (`t_e`.`currency_id` = `c`.`id`)
-        )
-    JOIN `users` `u`
-    ON
-        (`t_e`.`user_id` = `u`.`id`)
-    );
+FROM((((`transactions_expense` `t_e` 
+    JOIN `categories_expense` `c_e` ON (`t_e`.`categories_expense_id` = `c_e`.`id`))
+    JOIN `subcategories_expense` `s_e` ON (`t_e`.`subcategories_expense_id` = `s_e`.`id`))
+    JOIN `currencies` `c` ON (`t_e`.`currency_id` = `c`.`id`))
+    JOIN `users` `u` ON (`t_e`.`user_id` = `u`.`id`));
 
 --
 -- Indexek a kiírt táblákhoz

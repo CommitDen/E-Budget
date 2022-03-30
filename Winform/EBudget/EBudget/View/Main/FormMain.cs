@@ -149,8 +149,8 @@ namespace EBudget.View.Main
             chart_monthly_expense_breakdown.Width = ClientSize.Width/2;
             chart_monthly_expense_breakdown.Height = ClientSize.Height / 2;
 
-            chart_yearly_expense_income.Width = ClientSize.Width / 2;
-            chart_yearly_expense_income.Height = ClientSize.Height / 2;
+            chart_monthly_expense_income.Width = ClientSize.Width / 2;
+            chart_monthly_expense_income.Height = ClientSize.Height / 2;
 
             chart_monthly_breakdown.Height = ClientSize.Height / 2;
 
@@ -172,17 +172,17 @@ namespace EBudget.View.Main
             chart_monthly_breakdown.Titles.Add(title2);
             title3.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
             title3.Text = "Monthly Income Expense breakdown";
-            chart_yearly_expense_income.Titles.Add(title3);
+            chart_monthly_expense_income.Titles.Add(title3);
 
         }
 
         private void SetCharts()
         {
             chart_monthly_expense_breakdown.Series[0].Points.DataBindXY(chart_monthly_expense_breakdown_categories, chart_monthly_expense_breakdown_amounts);
-            chart_yearly_expense_income.Series[0].Points.DataBindXY(chart_yearly_expense_income_categories, chart_yearly_expense_income_amounts);
+            chart_monthly_expense_income.Series[0].Points.DataBindXY(chart_yearly_expense_income_categories, chart_yearly_expense_income_amounts);
 
-            chart_yearly_expense_income.Series[0].IsValueShownAsLabel = true;
-            chart_yearly_expense_income.Series[0]["LabelStyle"] = "Bottom";
+            chart_monthly_expense_income.Series[0].IsValueShownAsLabel = true;
+            chart_monthly_expense_income.Series[0]["LabelStyle"] = "Bottom";
 
             chart_monthly_breakdown.Series["expense"]["LabelStyle"] = "Bottom";
             chart_monthly_breakdown.Series["income"]["LabelStyle"] = "Bottom";

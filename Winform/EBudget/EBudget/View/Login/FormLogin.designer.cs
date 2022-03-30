@@ -84,7 +84,7 @@ namespace EBudget.View.Login
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(75, 26);
             this.button_login.TabIndex = 4;
-            this.button_login.Text = "Log in";
+            this.button_login.Text = "Login";
             this.button_login.UseVisualStyleBackColor = true;
             this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
@@ -94,10 +94,10 @@ namespace EBudget.View.Login
             this.linklabel_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linklabel_signup.Location = new System.Drawing.Point(122, 221);
             this.linklabel_signup.Name = "linklabel_signup";
-            this.linklabel_signup.Size = new System.Drawing.Size(48, 15);
+            this.linklabel_signup.Size = new System.Drawing.Size(49, 15);
             this.linklabel_signup.TabIndex = 5;
             this.linklabel_signup.TabStop = true;
-            this.linklabel_signup.Text = "SignUp";
+            this.linklabel_signup.Text = "Sign up";
             this.linklabel_signup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_signup_LinkClicked);
             // 
             // FormLogin

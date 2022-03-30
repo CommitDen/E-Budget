@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Már 24. 14:41
+-- Létrehozás ideje: 2022. Már 30. 12:11
 -- Kiszolgáló verziója: 10.4.20-MariaDB
 -- PHP verzió: 8.0.9
 
@@ -22,7 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `e-budget` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
 USE `e-budget`;
-
 --
 -- A tábla adatainak kiíratása `categories_expense`
 --
@@ -280,7 +279,6 @@ INSERT INTO `subcategories_expense` (`id`, `name`, `categories_expense_id`, `use
 (37, 'Medications', 8, NULL),
 (38, 'Accessories', 8, NULL);
 
-
 --
 -- A tábla adatainak kiíratása `users`
 --
@@ -303,13 +301,21 @@ INSERT INTO `transactions_expense` (`id`, `user_id`, `date`, `categories_expense
 (25, 1, '2022-02-16 00:00:00', 3, 11, 25, 64, ''),
 (26, 1, '2022-02-08 00:00:00', 3, 13, 15, 64, ''),
 (27, 1, '2022-02-04 00:00:00', 3, 14, 10, 64, ''),
-(28, 1, '2022-03-11 00:00:00', 2, 6, 2342, 64, ''),
 (29, 1, '2022-02-15 00:00:00', 4, 16, 35, 64, ''),
 (30, 1, '2022-02-09 00:00:00', 7, 32, 28.8, 64, ''),
 (39, 1, '2022-03-11 00:00:00', 8, 35, 201, 64, ''),
-(40, 1, '2022-03-11 00:00:00', 5, 21, 2000, 64, ''),
+(40, 1, '2022-03-23 00:00:00', 5, 21, 1000, 64, ''),
 (41, 1, '2022-03-11 00:00:00', 4, 18, 200, 64, ''),
-(42, 1, '2022-03-31 00:00:00', 2, 7, 120, 66, '');
+(42, 1, '2022-03-31 00:00:00', 2, 7, 120, 66, ''),
+(43, 1, '2022-04-02 00:00:00', 2, 6, 120, 64, ''),
+(44, 1, '2022-04-13 00:00:00', 7, 32, 100, 64, ''),
+(45, 1, '2022-04-15 00:00:00', 4, 16, 80, 64, ''),
+(46, 1, '2022-02-16 00:00:00', 7, 32, 100, 64, ''),
+(47, 1, '2022-02-03 00:00:00', 4, 16, 80, 64, ''),
+(48, 1, '2022-02-17 00:00:00', 4, 17, 1200, 64, 'Engine repair'),
+(49, 1, '2022-03-30 00:00:00', 1, 2, 500, 64, ''),
+(50, 1, '2022-03-16 00:00:00', 7, 32, 100, 64, ''),
+(51, 1, '2022-04-30 00:00:00', 1, 2, 500, 64, '');
 
 --
 -- A tábla adatainak kiíratása `transactions_income`
@@ -317,11 +323,13 @@ INSERT INTO `transactions_expense` (`id`, `user_id`, `date`, `categories_expense
 
 INSERT INTO `transactions_income` (`id`, `user_id`, `date`, `categories_income_id`, `subcategories_income_id`, `amount`, `currency_id`, `comment`) VALUES
 (4, 1, '2022-01-01 00:00:00', 1, NULL, 3500, 64, ''),
-(5, 1, '2022-02-01 00:00:00', 1, NULL, 3500, 64, '');
+(5, 1, '2022-02-01 00:00:00', 1, NULL, 3500, 64, ''),
+(6, 1, '2022-03-01 00:00:00', 1, NULL, 3500, 64, NULL),
+(7, 1, '2022-04-01 00:00:00', 1, NULL, 3500, 64, NULL);
+
 
 
 -- --------------------------------------------------------
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

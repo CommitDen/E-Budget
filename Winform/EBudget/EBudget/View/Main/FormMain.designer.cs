@@ -58,7 +58,7 @@ namespace EBudget.View.Main
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox_settings_DefaultCurrency = new System.Windows.Forms.ComboBox();
             this.tabPage_reports = new System.Windows.Forms.TabPage();
-            this.chart_yearly_expense_income = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_monthly_expense_income = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_monthly_expense_breakdown = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_monthly_breakdown = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage_categories = new System.Windows.Forms.TabPage();
@@ -103,7 +103,7 @@ namespace EBudget.View.Main
             this.tabControl_main = new System.Windows.Forms.TabControl();
             this.tabPage_settings.SuspendLayout();
             this.tabPage_reports.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_yearly_expense_income)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_expense_income)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_expense_breakdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_breakdown)).BeginInit();
             this.tabPage_categories.SuspendLayout();
@@ -268,7 +268,7 @@ namespace EBudget.View.Main
             // tabPage_reports
             // 
             this.tabPage_reports.BackColor = System.Drawing.Color.DarkGray;
-            this.tabPage_reports.Controls.Add(this.chart_yearly_expense_income);
+            this.tabPage_reports.Controls.Add(this.chart_monthly_expense_income);
             this.tabPage_reports.Controls.Add(this.chart_monthly_expense_breakdown);
             this.tabPage_reports.Controls.Add(this.chart_monthly_breakdown);
             this.tabPage_reports.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -279,22 +279,22 @@ namespace EBudget.View.Main
             this.tabPage_reports.TabIndex = 1;
             this.tabPage_reports.Text = "Reports";
             // 
-            // chart_yearly_expense_income
+            // chart_monthly_expense_income
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart_yearly_expense_income.ChartAreas.Add(chartArea1);
-            this.chart_yearly_expense_income.Dock = System.Windows.Forms.DockStyle.Right;
+            this.chart_monthly_expense_income.ChartAreas.Add(chartArea1);
+            this.chart_monthly_expense_income.Dock = System.Windows.Forms.DockStyle.Right;
             legend1.Enabled = false;
             legend1.Name = "Legend1";
-            this.chart_yearly_expense_income.Legends.Add(legend1);
-            this.chart_yearly_expense_income.Location = new System.Drawing.Point(487, 3);
-            this.chart_yearly_expense_income.Name = "chart_yearly_expense_income";
+            this.chart_monthly_expense_income.Legends.Add(legend1);
+            this.chart_monthly_expense_income.Location = new System.Drawing.Point(487, 3);
+            this.chart_monthly_expense_income.Name = "chart_monthly_expense_income";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart_yearly_expense_income.Series.Add(series1);
-            this.chart_yearly_expense_income.Size = new System.Drawing.Size(461, 226);
-            this.chart_yearly_expense_income.TabIndex = 2;
+            this.chart_monthly_expense_income.Series.Add(series1);
+            this.chart_monthly_expense_income.Size = new System.Drawing.Size(461, 226);
+            this.chart_monthly_expense_income.TabIndex = 2;
             // 
             // chart_monthly_expense_breakdown
             // 
@@ -847,7 +847,7 @@ namespace EBudget.View.Main
             this.tabPage_settings.ResumeLayout(false);
             this.tabPage_settings.PerformLayout();
             this.tabPage_reports.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_yearly_expense_income)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_expense_income)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_expense_breakdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_monthly_breakdown)).EndInit();
             this.tabPage_categories.ResumeLayout(false);
@@ -880,7 +880,7 @@ namespace EBudget.View.Main
         private Label label8;
         private ComboBox comboBox_settings_DefaultCurrency;
         private TabPage tabPage_reports;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_yearly_expense_income;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_monthly_expense_income;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_monthly_expense_breakdown;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_monthly_breakdown;
         private TabPage tabPage_categories;
