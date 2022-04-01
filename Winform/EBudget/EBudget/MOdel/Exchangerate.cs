@@ -22,7 +22,6 @@ namespace EBudget.Model
                 }
                 catch (Exception)
                 {
-                    DateTime now = DateTime.Now;
                     url = string.Format(urlPattern, "latest", fromCurrency.ToLower(), toCurrency.ToLower());
                     response = wc.DownloadString(url);
                 }
