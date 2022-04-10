@@ -85,8 +85,13 @@ namespace EBudget.View.TransInput
         }
         private void button_add_Click(object sender, EventArgs e)
         {
-            presenter.AddTransaction();
-            this.Close();
+            if (comboBox_categories.SelectedItem!=null && comboBox_subcategories.SelectedItem!=null) {
+                presenter.AddTransaction();
+                this.Close();
+            } else {
+                MessageBox.Show("Missing data!", "Error", MessageBoxButtons.OK);
+            }
+           
         }
 
 

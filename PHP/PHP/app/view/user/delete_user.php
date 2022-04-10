@@ -11,7 +11,7 @@
                             <h4> Are you sure you want to permanently delete your account? </h4>
                         </div>
                         <div class="row text-center mt-3">
-                            <p> All data will be lost </p>
+                            <p> All data will be lost! </p>
                         </div>
                         <div class="text-center mt-2">
                             <a class="btn btn-warning" href="javascript:history.go(-1)">

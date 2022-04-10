@@ -34,12 +34,12 @@ namespace app\controller;
 
         public function passwordValidation(){
             $password = $_POST['pwd'];
-            $uppercase = !preg_match("/[A-Z]/", $password);
-            $lowercase = !preg_match("/[a-z]/", $password);
-            $number    = !preg_match("/\d/", $password);
-            $specialChar = !preg_match("/\W/", $password);
+            $uppercase = preg_match("/[A-Z]/", $password);
+            $lowercase = preg_match("/[a-z]/", $password);
+            $number    = preg_match("/\d/", $password);
+            $specialChar = preg_match("/\W/", $password);
 
-            if(!$uppercase && !$lowercase && !$number && !$specialChar && strlen($password) > 8) {
+            if($uppercase > 0 && $lowercase > 0 && $number > 0 && $specialChar > 0 && strlen($password) > 8) {
                 return true;
             }
             else {
@@ -70,11 +70,10 @@ namespace app\controller;
                 $user->getEmail = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
                 $user->getPassword = hash('sha256', filter_var($_POST['pwd'], FILTER_SANITIZE_STRING). $this->createSalt($user->getEmail));
                 $password_confirmation = hash('sha256', filter_var($_POST['pwdConfirm'], FILTER_SANITIZE_STRING). $this->createSalt($user->getEmail));
-                var_dump($user->getPassword, $password_confirmation);
                 $user->getCurrencyId = $_POST['currencyId'];
                 if ($user->getName != "" && strlen($user->getName) >= 5 && preg_match("/^[a-zA-Z-' ]*$/", $user->getName)) {
                     if (!(!filter_var($user->getEmail, FILTER_VALIDATE_EMAIL))) {
-                        if (!$userDaoObj->checkIfEmailIsAvailable($user->getEmail)) {
+                        if (!$this->boolConverter($userDaoObj->checkIfEmailIsAvailable($user->getEmail)->bool)) {
                             if ($this->passwordValidation()) {
                                if ($password_confirmation == $user->getPassword) {
                                 $userDaoObj->newUserAdd($user);
@@ -85,7 +84,7 @@ namespace app\controller;
                                }
                             }
                             else {
-                                echo "<script>alert('Password does not match the following requirements:\n\t-8 char length\n\t-at least one lowercase character\n\t-at least one uppercase character\n\t-at least one special character')</script>";
+                                echo "<script>alert('Password does not match the following requirements: 8 char length, at least one lowercase character, at least one uppercase character, at least one special character!')</script>";
                             }
                         }
                         else {
@@ -112,7 +111,6 @@ namespace app\controller;
             if (isset($_POST['login'])) {
                 $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
                 $password = hash('sha256', filter_var($_POST['pwd'], FILTER_SANITIZE_STRING). $this->createSalt($email));
-                var_dump($userDaoObj->checkIfEmailIsAvailable($email));
                 if (!$this->boolConverter($userDaoObj->checkIfEmailIsAvailable($email)->bool)) {
                     echo "<script>alert('Incorrect email')</script>";
                 }
@@ -215,19 +213,24 @@ namespace app\controller;
             $categoryName = $parts[0];
             $init = false;
             if (isset($_POST['newTransaction']['add'])) {
-                for ($i=0; $i < count($categoriesIncome); $i++) { 
-                    if ($categoriesIncome[$i]->name == $categoryName) {
-                        $init = true;
+                if (isset($_POST['newTransaction']['amount']) && $_POST['newTransaction']['amount'] > 0) {
+                    for ($i=0; $i < count($categoriesIncome); $i++) { 
+                        if ($categoriesIncome[$i]->name == $categoryName) {
+                            $init = true;
+                        }
                     }
-                }
-                if ($init) {
-                    $table = "transactions_income";
+                    if ($init) {
+                        $table = "transactions_income";
+                    }
+                    else {
+                        $table = "transactions_expense";
+                    }
+                    $transactionsDaoObj->addNewTransaction($table);
+                    header('Location: index.php?controller=TransactionController&action=transactions');
                 }
                 else {
-                    $table = "transactions_expense";
+                    echo "<script>alert('Missing data: Amount!'); window.location.replace('index.php?controller=TransactionController&action=loadAddNewTransaction');</script>";
                 }
-                $transactionsDaoObj->addNewTransaction($table);
-                header('Location: index.php?controller=TransactionController&action=transactions');
             }
         }
 
@@ -312,20 +315,26 @@ namespace app\controller;
             $allCategories = $categoriesDaoObj->allCategoriesQuery();
             $bool = true;
             if (isset($_POST['add_category'])) {
-                $type = $this->boolConverter($_POST['category_type']);
-                for ($i=0; $i < count($allCategories); $i++) { 
-                    if ($allCategories[$i]->name == $_POST['categoryAdd']) {
-                        $bool = false;
-                        break;
+                if (isset($_POST['categoryAdd']) && strlen($_POST['categoryAdd']) >= 5) {
+                    $type = $this->boolConverter($_POST['category_type']);
+                    for ($i=0; $i < count($allCategories); $i++) { 
+                        if ($allCategories[$i]->name == $_POST['categoryAdd']) {
+                            $bool = false;
+                            break;
+                        }
+                    }
+                    if ($bool) {
+                        $categoriesDaoObj->addCategory($type);
+                        header('Location: index.php?controller=TransactionController&action=categories');
+                    }
+                    else {
+                        echo "<script>alert('This category already exists');</script>";
                     }
                 }
-                if ($bool) {
-                    $categoriesDaoObj->addCategory($type);
-                    header('Location: index.php?controller=TransactionController&action=categories');
-                }
                 else {
-                    echo "<script>alert('This category already exists');</script>";
+                    echo "<script>alert('Category name can not be shorter than 5 letters!'); window.location.replace('index.php?controller=TransactionController&action=load_add_category');</script>";
                 }
+                
             }
 
             return $this->load('user', 'add_category', [
@@ -435,11 +444,11 @@ namespace app\controller;
                         header('Location: index.php?controller=TransactionController&action=load_edit_category&category='.$category);
                     }
                     else {
-                        echo "<script>alert('This subcategory already exists');</script>";
+                        echo "<script>alert('This subcategory already exists!');</script>";
                     }
                 }
                 else {
-                    echo "<script>alert('Subcategory name can not be shorter than 5 letters');</script>";
+                    echo "<script>alert('Subcategory name can not be shorter than 5 letters!');</script>";
                 }
             }
             return $this->load('user', 'add_subcategory', [

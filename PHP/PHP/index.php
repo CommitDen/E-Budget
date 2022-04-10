@@ -36,6 +36,7 @@ session_start();
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://kit.fontawesome.com/726d8295c9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="container mx-auto mt-5 pt-4">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">

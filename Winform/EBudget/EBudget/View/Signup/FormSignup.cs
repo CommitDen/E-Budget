@@ -45,8 +45,13 @@ namespace EBudget.View.Signup
         {
             if (textbox_signup_name.Text != "" && textbox_signup_email.Text != "" && textbox_signup_password1.Text != "" && textbox_signup_password2.Text != "" && check_if_same(textbox_signup_password1.Text, textbox_signup_password2.Text))
             {
-                presenter.RegisterUser();
-                Form_Change_Login();
+                SignupPresenter.PasswordScore score = presenter.CheckStrength(textbox_signup_password1.Text);
+                if (score == SignupPresenter.PasswordScore.Blank || score == SignupPresenter.PasswordScore.VeryWeak || score == SignupPresenter.PasswordScore.Weak) {
+                    MessageBox.Show("Weak password,\nPassword must be atleast \n  8 character long \nMust contain atleast:\n  1 lowercase character\n  1 uppercase character \n  1 number \n  1 special character", "Weak password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else {
+                    presenter.RegisterUser();
+                    Form_Change_Login();
+                }
             }
             else MessageBox.Show("Missing data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -60,7 +65,6 @@ namespace EBudget.View.Signup
             if (!Regex.Match(textbox_signup_email.Text, "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[A-Za-z]{2,}", RegexOptions.ECMAScript).Success)
             {
                 MessageBox.Show("Please enter a valid email adress!", "Incorrect email format.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //textbox_email1.Focus();
             }
         }
         private void Password1_textbox_Leave(object sender, EventArgs e)
@@ -82,14 +86,6 @@ namespace EBudget.View.Signup
         {
             if (str1 == str2) return true;
             else return false;
-        }
-        private void empty_check(object sender, EventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "")
-            {
-                MessageBox.Show("Missing data: " + textBox.Name.Remove(0, 8), "Missing data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

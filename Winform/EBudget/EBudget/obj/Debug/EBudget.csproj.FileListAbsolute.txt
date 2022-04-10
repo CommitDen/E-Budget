@@ -95,14 +95,11 @@ F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\System.Buffers.xml
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\System.Memory.xml
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\System.Numerics.Vectors.xml
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.AssemblyReference.cache
-F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.SuggestedBindingRedirects.cache
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.Properties.Resources.resources
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.View.Login.FormLogin.resources
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.View.Main.FormMain.resources
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.View.TransInput.FormTransInput.resources
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.GenerateResource.cache
-F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.CoreCompileInputs.cache
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.CopyComplete
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.exe
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.pdb
@@ -112,3 +109,6 @@ F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\Konscious.Security.Cr
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\Konscious.Security.Cryptography.Argon2.xml
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\bin\Debug\Konscious.Security.Cryptography.Blake2.xml
 F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.View.Signup.FormSignup.resources
+F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.AssemblyReference.cache
+F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.SuggestedBindingRedirects.cache
+F:\szakdolgozat\E-Budget\Winform\EBudget\EBudget\obj\Debug\EBudget.csproj.CoreCompileInputs.cache

@@ -29,9 +29,8 @@ function filter(){
                 array_push($filterList, "currency_filter:" . $_POST['currency_filter']);
             }
             if (isset($_POST['from_date_filter']) && $_POST['from_date_filter'] != "" && isset($_POST['to_date_filter']) && $_POST['to_date_filter'] != "") {
-                
+                array_push($filterList, "date_filter:" . $_POST['from_date_filter'] . ":" . $_POST['to_date_filter']);
             }
-            array_push($filterList, "date_filter:" . $_POST['from_date_filter'] . ":" . $_POST['to_date_filter']);
             if (count($filterList) > 0) {
                 foreach ($filterList as $filter) {
                     $parts = explode(":", $filter);
@@ -58,7 +57,6 @@ function filter(){
             $query1 = ' LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
             }
 
-            //var_dump($filterList);
 
             $db = new Db();
 

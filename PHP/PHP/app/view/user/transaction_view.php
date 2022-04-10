@@ -164,7 +164,6 @@
     { orderable: false },
     ],
     
-    
     "processing" : true,
     "serverSide" : true,
     "order" : [],
@@ -186,7 +185,6 @@
             dataType: "json",
             data: {type_filter:type_filter, category_filter:category_filter, subcategory_filter:subcategory_filter, currency_filter:currency_filter, from_date_filter:from_date_filter, to_date_filter:to_date_filter},       
             success: function(data){
-                console.log(data.balance, data.expense_total, data.income_total);
                 $("#balance").html(data.balance); 
                 $("#expense").html(data.expense_total); 
                 $("#income").html(data.income_total); 

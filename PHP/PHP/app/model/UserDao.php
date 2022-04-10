@@ -12,7 +12,6 @@ use app\model\User;
             $statement->setFetchMode(\PDO::FETCH_OBJ);
             $statement->execute();
             $stdclass = $statement->fetch();
-            var_dump($stdclass);
             return $stdclass->id;
         }
 

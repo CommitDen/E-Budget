@@ -58,10 +58,10 @@ $filterList = array();
                 }
                 else {
                     if ($row['Date'] >= date("Y-m-d")) {
-                        $date = date('Y-m-d',strtotime("-1 days"));
+                        $date = "latest";
                     }
                     else {
-                        $date = $row['Date'];
+                        $date = date("Y-m-d", strtotime($row['Date']));
                     }
                     $json = file_get_contents('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/'.$date.'/currencies/'.$row['Currency_code'].'/'.$_SESSION['defCurrency'].'.json');
                     $obj = (array)json_decode($json);
@@ -96,10 +96,10 @@ $filterList = array();
                 }
                 else {
                     if ($row['Date'] >= date("Y-m-d")) {
-                        $date = date('Y-m-d',strtotime("-1 days"));
+                        $date = "latest";
                     }
                     else {
-                        $date = $row['Date'];
+                        $date = date("Y-m-d", strtotime($row['Date']));
                     }
                     $json = file_get_contents('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/'.$date.'/currencies/'.$row['Currency_code'].'/'.$_SESSION['defCurrency'].'.json');
                     $obj = (array)json_decode($json);

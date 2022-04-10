@@ -165,7 +165,7 @@ namespace EBudget.View.Main
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(39, 365);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 16);
+            this.label13.Size = new System.Drawing.Size(101, 16);
             this.label13.TabIndex = 11;
             this.label13.Text = "Delete account:";
             // 
@@ -204,7 +204,7 @@ namespace EBudget.View.Main
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(39, 167);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 16);
+            this.label12.Size = new System.Drawing.Size(119, 16);
             this.label12.TabIndex = 9;
             this.label12.Text = "Confirm-password:";
             // 
@@ -225,7 +225,7 @@ namespace EBudget.View.Main
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(39, 124);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 16);
+            this.label11.Size = new System.Drawing.Size(71, 16);
             this.label11.TabIndex = 5;
             this.label11.Text = "Password:";
             // 
@@ -234,7 +234,7 @@ namespace EBudget.View.Main
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(39, 80);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 16);
+            this.label10.Size = new System.Drawing.Size(45, 16);
             this.label10.TabIndex = 4;
             this.label10.Text = "Email:";
             // 
@@ -243,7 +243,7 @@ namespace EBudget.View.Main
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(39, 35);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 16);
+            this.label9.Size = new System.Drawing.Size(48, 16);
             this.label9.TabIndex = 2;
             this.label9.Text = "Name:";
             // 
@@ -252,7 +252,7 @@ namespace EBudget.View.Main
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(39, 213);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 16);
+            this.label8.Size = new System.Drawing.Size(107, 16);
             this.label8.TabIndex = 1;
             this.label8.Text = "Default currency:";
             // 
@@ -358,7 +358,7 @@ namespace EBudget.View.Main
             this.radioButton_expense.Checked = true;
             this.radioButton_expense.Location = new System.Drawing.Point(324, 375);
             this.radioButton_expense.Name = "radioButton_expense";
-            this.radioButton_expense.Size = new System.Drawing.Size(78, 20);
+            this.radioButton_expense.Size = new System.Drawing.Size(79, 20);
             this.radioButton_expense.TabIndex = 21;
             this.radioButton_expense.TabStop = true;
             this.radioButton_expense.Text = "Expense";
@@ -370,7 +370,7 @@ namespace EBudget.View.Main
             this.radioButton_income.AutoSize = true;
             this.radioButton_income.Location = new System.Drawing.Point(249, 375);
             this.radioButton_income.Name = "radioButton_income";
-            this.radioButton_income.Size = new System.Drawing.Size(69, 20);
+            this.radioButton_income.Size = new System.Drawing.Size(70, 20);
             this.radioButton_income.TabIndex = 20;
             this.radioButton_income.Text = "Income";
             this.radioButton_income.UseVisualStyleBackColor = true;
@@ -541,7 +541,7 @@ namespace EBudget.View.Main
             this.label_pagecount.Location = new System.Drawing.Point(839, 105);
             this.label_pagecount.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label_pagecount.Name = "label_pagecount";
-            this.label_pagecount.Size = new System.Drawing.Size(63, 16);
+            this.label_pagecount.Size = new System.Drawing.Size(64, 16);
             this.label_pagecount.TabIndex = 10;
             this.label_pagecount.Text = "Page: 1 / ";
             // 
@@ -607,7 +607,7 @@ namespace EBudget.View.Main
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(7, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 16);
+            this.label7.Size = new System.Drawing.Size(43, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "Type:";
             // 
@@ -640,7 +640,7 @@ namespace EBudget.View.Main
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(8, 223);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 16);
+            this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 11;
             this.label6.Text = "Currency:";
             // 
@@ -668,7 +668,7 @@ namespace EBudget.View.Main
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(8, 167);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 16);
+            this.label5.Size = new System.Drawing.Size(88, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Subcategory:";
             // 
@@ -715,7 +715,7 @@ namespace EBudget.View.Main
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 334);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 16);
+            this.label3.Size = new System.Drawing.Size(28, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "To:";
             // 
@@ -724,7 +724,7 @@ namespace EBudget.View.Main
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(8, 279);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(42, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "From:";
             // 
@@ -733,7 +733,7 @@ namespace EBudget.View.Main
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Category:";
             // 
@@ -823,6 +823,7 @@ namespace EBudget.View.Main
             this.tabControl_main.Controls.Add(this.tabPage_categories);
             this.tabControl_main.Controls.Add(this.tabPage_reports);
             this.tabControl_main.Controls.Add(this.tabPage_settings);
+            this.tabControl_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabControl_main.Location = new System.Drawing.Point(0, 0);
             this.tabControl_main.Name = "tabControl_main";

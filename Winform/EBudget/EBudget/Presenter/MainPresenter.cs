@@ -86,7 +86,6 @@ namespace EBudget.Presenter
                 {
                     queryfromview += " " + filter.Querystring;
                 }
-                return queryfromview;
             }
             return queryfromview;
         }
